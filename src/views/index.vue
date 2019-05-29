@@ -1,53 +1,44 @@
-<style scoped lang="less">
-    .index{
-        width: 100%;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        left: 0;
-        text-align: center;
-        h1{
-            height: 150px;
-            img{
-                height: 100%;
-            }
-        }
-        h2{
-            color: #666;
-            margin-bottom: 200px;
-            p{
-                margin: 0 0 50px;
-            }
-        }
-        .ivu-row-flex{
-            height: 100%;
-        }
-    }
-</style>
 <template>
-    <div class="index">
-        <Row type="flex" justify="center" align="middle">
-            <Col span="24">
-                <h1>
-                    <img src="../images/logo.png">
-                </h1>
-                <h2>
-                    <p>Welcome to your iView app!</p>
-                    <Button @click="handleStart">Start iView</Button>
-                </h2>
-            </Col>
-        </Row>
+    <div>
+    <Menu :theme="theme3" active-name="1">
+        <MenuGroup title="内容管理">
+            <MenuItem name="1">
+                <Icon type="md-document" />
+                文章管理
+            </MenuItem>
+            <MenuItem name="2">
+                <Icon type="md-chatbubbles" />
+                评论管理
+            </MenuItem>
+        </MenuGroup>
+        <MenuGroup title="统计分析">
+            <MenuItem name="3">
+                <Icon type="md-heart" />
+                用户留存
+            </MenuItem>
+            <MenuItem name="4">
+                <Icon type="md-leaf" />
+                流失用户
+            </MenuItem>
+        </MenuGroup>
+    </Menu>
+    <br>
+    <p>Change theme</p>
+    <RadioGroup v-model="theme3">
+        <Radio label="light"></Radio>
+        <Radio label="dark"></Radio>
+    </RadioGroup>
     </div>
 </template>
 <script>
     export default {
-        methods: {
-            handleStart () {
-                this.$Modal.info({
-                    title: 'Bravo',
-                    content: 'Now, enjoy the convenience of iView.'
-                });
+        data () {
+            return {
+                theme3: 'light'
             }
         }
     }
 </script>
+<style scoped lang="less">
+
+</style>
