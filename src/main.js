@@ -25,10 +25,27 @@ const RouterConfig = {
 const router = new VueRouter(RouterConfig);
 
 router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
-    Util.title(to.meta.title);
-    next();
+    if(to.meta.requireAuth){
+        console.log(store.getters.isLogin);
+        if (store.getters.isLogin){
+            console.log("store.getters.isLogin");
+            next();
+        }else {
+            console.log("xxxxx");
+            next({
+                path : '/login',
+                query : {redirect : to.fullPath}
+            })
+        }
+    }else {
+
+        iView.LoadingBar.start();
+        Util.title(to.meta.title);
+        next()
+    }
 });
+
+
 
 router.afterEach((to, from, next) => {
     iView.LoadingBar.finish();

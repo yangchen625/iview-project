@@ -5,6 +5,21 @@ const aaa = {template: '<div>aaa</div>'}
 var notFound = {
     template: '<h2>该页面找不到了。。。 /ps 这个支持模糊匹配</h2>'
 };
+routers.beforeEach((to,from,next) => {
+    if(to.meta.requireAuth){
+        console.log(store.getters.isLogin);
+        if (store.getters.isLogin){
+            next();
+        }else {
+            next({
+                path : '/login',
+                query : {redirect : to.fullPath}
+            })
+        }
+    }else {
+        next()
+    }
+});
 
 const routers = [
     {
@@ -28,8 +43,7 @@ const routers = [
             {
                 path: '/test',
                 meta: {
-                    title: '',
-                    requireAuth: true
+                    title: ''
                 },
                 component: (resolve) => require(['./views/test.vue'], resolve)
             },

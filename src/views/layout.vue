@@ -82,8 +82,11 @@
                             {{item.label}}
                         </template>
                         <div v-for="menuitem of item.menuitems">
-                            <MenuItem :name="menuitem.name" >
-                                <router-link :to="menuitem.url" tag="li" @click.native="handleclick(menuitem.label,item.label,menuitem.url,item.url)" >{{menuitem.label}}</router-link>
+                            <MenuItem :name="menuitem.name">
+                                <router-link :to="menuitem.url" tag="li"
+                                             @click.native="handleclick(menuitem.label,item.label,menuitem.url,item.url)">
+                                    {{menuitem.label}}
+                                </router-link>
                             </MenuItem>
                         </div>
                     </Submenu>
@@ -112,13 +115,13 @@
         data() {
             return {
                 isCollapsed: false,
-                sencondLabel:'菜单1-1',
-                firstLabel:'菜单1',
-                firstUrl:'/home1',
-                secondUrl:'/bar',
+                sencondLabel: '菜单1-1',
+                firstLabel: '菜单1',
+                firstUrl: '/home1',
+                secondUrl: '/bar',
                 menuData: [
                     {
-                        label: '菜单1', name: "m1",icon:"ios-navigate",url:"/home1",
+                        label: '菜单1', name: "m1", icon: "ios-navigate", url: "/home1",
                         menuitems: [
                             {name: 'm1-1', label: 'to_test', url: '/test'},
                             {name: 'm1-2', label: '菜单1-2', url: '/bar'},
@@ -127,7 +130,7 @@
                         ]
                     },
                     {
-                        label: '菜单2', name: "m2",icon:"ios-analytics",url:"/home1",
+                        label: '菜单2', name: "m2", icon: "ios-analytics", url: "/home1",
                         menuitems: [
                             {name: 'm2-1', label: '菜单2-1', url: '/test'},
                             {name: 'm2-2', label: '菜单2-2', url: '/bar'},
@@ -136,7 +139,7 @@
                         ]
                     },
                     {
-                        label: '菜单3', name: "m3",icon:"ios-paper",url:"/home1",
+                        label: '菜单3', name: "m3", icon: "ios-paper", url: "/home1",
                         menuitems: [
                             {name: 'm3-1', label: '菜单3-1', url: '/test'},
                             {name: 'm3-2', label: '菜单3-2', url: '/bar'},
@@ -145,7 +148,7 @@
                         ]
                     },
                     {
-                        label: '菜单4', name: "m4",icon:"ios-navigate",url:"/home1",
+                        label: '菜单4', name: "m4", icon: "ios-navigate", url: "/home1",
                         menuitems: [
                             {name: 'm4-1', label: '菜单4-1', url: '/test'},
                             {name: 'm4-2', label: '菜单4-2', url: '/bar'},
@@ -164,13 +167,13 @@
                 ]
             }
         },
-        methods:{
-            handleclick:function (label,firstLabel,secondUrl,firstUrl) {
-                console.log(label,name,secondUrl,firstUrl)
-                this.sencondLabel=label
-                this.firstLabel=firstLabel
-                this.firstUrl=firstUrl
-                this.secondUrl=firstUrl
+        methods: {
+            handleclick: function (label, firstLabel, secondUrl, firstUrl) {
+                console.log(label, name, secondUrl, firstUrl)
+                this.sencondLabel = label
+                this.firstLabel = firstLabel
+                this.firstUrl = firstUrl
+                this.secondUrl = firstUrl
             }
         }
     }

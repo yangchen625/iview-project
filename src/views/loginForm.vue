@@ -16,6 +16,7 @@
     </Form>
 </template>
 <script>
+    import axios from 'axios'
     export default {
         data () {
             return {
@@ -35,6 +36,11 @@
             }
         },
         methods: {
+            methods: {
+                ...mapActions([
+                    'handleLogin',
+                    'getUserInfo'
+                ]),
             handleSubmit(name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
