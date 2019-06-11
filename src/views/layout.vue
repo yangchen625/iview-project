@@ -123,7 +123,7 @@
                             {name: 'm1-1', label: 'to_test', url: '/test'},
                             {name: 'm1-2', label: '菜单1-2', url: '/bar'},
                             {name: 'm1-3', label: '菜单1-3', url: '/foo'},
-                            {name: 'm1-4', label: '菜单1-4', url: '/'},
+                            {name: 'm1-4', label: 'to_login', url: '/login'},
                         ]
                     },
                     {
